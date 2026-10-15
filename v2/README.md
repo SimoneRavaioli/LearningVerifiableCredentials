@@ -1,4 +1,4 @@
-# Learning Passport — Wallet v2
+# LCV Passport - Wallet v2
 
 A separate mobile-first learner wallet with real LearnCard signing, independent Digital Bazaar verification, readable consent, two synthetic issuers, clean-browser holder recovery and an isolated local service PoC. **The original application and its published preview remain v1.** V2 uses a different database, local launch port and private Site.
 

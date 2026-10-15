@@ -1,22 +1,22 @@
 # Retrospective and prioritized improvement backlog
 
-Updated 15 October 2026 after Wallet v2 implementation and private deployment. The original hosted product is now **Wallet v1**; its URL and browser storage remain unchanged.
+Updated 15 October 2026 after LCV Passport - Wallet v2 implementation and private deployment. The original hosted product is now **LCV Passport - Wallet v1**; its URL and browser storage remain unchanged.
 
 ## Current assessment
 
-**Wallet v2 delivers the mobile learner workflow and several engineering improvements identified by the original review.** It has focused Wallet, Requests, Activity and Settings screens, readable full-disclosure consent, clearer verification outcomes, two demo issuers and clean-browser holder recovery. Real LearnCard signing and independent Digital Bazaar verification remain central.
+**LCV Passport - Wallet v2 delivers the mobile learner workflow and several engineering improvements identified by the original review.** It has focused Wallet, Requests, Activity and Settings screens, readable full-disclosure consent, clearer verification outcomes, two demo issuers and clean-browser holder recovery. Real LearnCard signing and independent Digital Bazaar verification remain central.
 
 The [acceptance tracker](../../v2/docs/backlog-status.json) records **11 implemented, 13 partial and one requiring external validation** across the original 25 items. These labels distinguish delivered code from all acceptance criteria being satisfied; they do not imply a full accessibility audit, consumer-app compatibility or readiness for real learner data.
 
 | Mode | Delivered experience / architecture | Evidence and retained boundary |
 | --- | --- | --- |
-| [Wallet v1](https://learning-passport-wallet-preview.wellanole256.chatgpt.site/) | Original three-role browser demonstration; original Node reference retained. | Original tests remain historical v1 evidence. Its browser backup depends on original issuer records; Node mode holds the learner key server-side. |
-| [Wallet v2 hosted demo](https://learning-passport-wallet-v2.wellanole256.chatgpt.site/) | Mobile learner screens, demo tools, readable consent, multi-issuer receipt, recovery and warm-cache offline reload. | Production Chromium journey, responsive widths 320/390/430/1440, 200% zoom, tested result-screen axe checks and clean-browser recovery pass. All demo identities still share one origin. |
-| Wallet v2 local service / OpenID PoC | Separate issuer, authority and verifier processes/origins; holder key in browser. Limited OID4VCI issuance and PEX OID4VP presentation. | Seven Node tests plus isolated-service browser tests pass. Unmodified LearnCard OpenID plugin 0.3.11 completes issuance/presentation; the complete consumer app and real cross-device deployment remain untested. These Node services are not running behind the hosted demo. |
+| [LCV Passport - Wallet v1](https://learning-passport-wallet-preview.wellanole256.chatgpt.site/) | Original three-role browser demonstration; original Node reference retained. | Original tests remain historical v1 evidence. Its browser backup depends on original issuer records; Node mode holds the learner key server-side. |
+| [LCV Passport - Wallet v2 hosted demo](https://learning-passport-wallet-v2.wellanole256.chatgpt.site/) | Mobile learner screens, demo tools, readable consent, multi-issuer receipt, recovery and warm-cache offline reload. | Production Chromium journey, responsive widths 320/390/430/1440, 200% zoom, tested result-screen axe checks and clean-browser recovery pass. All demo identities still share one origin. |
+| LCV Passport - Wallet v2 local service / OpenID PoC | Separate issuer, authority and verifier processes/origins; holder key in browser. Limited OID4VCI issuance and PEX OID4VP presentation. | Seven Node tests plus isolated-service browser tests pass. Unmodified LearnCard OpenID plugin 0.3.11 completes issuance/presentation; the complete consumer app and real cross-device deployment remain untested. These Node services are not running behind the hosted demo. |
 
 The [release evidence](../../v2/evidence/release.json), [deployment record](../../v2/evidence/deployment.json), [local package test](../../v2/evidence/local-package-browser.json) and [LearnCard protocol status](../../v2/docs/learncard-protocol-status.md) identify actual scope. Successful private deployment is verified by the hosting service; it is not an independent owner-device usability study.
 
-## Original Wallet v1 findings
+## Original LCV Passport - Wallet v1 findings
 
 The long three-role page, raw-JSON consent, same-environment backup test and difficult cloud preview delivery motivated this backlog. Those are historical findings about v1, not descriptions of the current v2 mobile interface. V1 is preserved for comparison. Neither version establishes official accreditation or production institutional custody through cryptographic signatures alone.
 
@@ -28,7 +28,7 @@ The long three-role page, raw-JSON consent, same-environment backup test and dif
 - Keep the synthetic-data boundary visible. Consolidate technical caveats into a useful “About this demo” view, while retaining warnings next to actions where they affect decisions.
 - Keep the private HTTPS preview and a documented local fallback. Access to a preview is part of delivery, not an incidental infrastructure task.
 
-## Delivery lessons from Wallet v1
+## Delivery lessons from LCV Passport - Wallet v1
 
 | Finding | Why it mattered | Change for the next iteration |
 | --- | --- | --- |
@@ -43,7 +43,7 @@ The long three-role page, raw-JSON consent, same-environment backup test and dif
 
 **P0** blocks a reliable, honest showcase. **P1** establishes a meaningful interoperability PoC. **P2** is needed before a real-user pilot, or extends the product. Effort is relative: S = a focused task, M = several connected changes, L = a cross-component or partner integration. These are planning estimates, not delivery commitments. Product, design, engineering, QA and standards lead are proposed responsibilities, not assigned people.
 
-| ID | Priority / effort / proposed owner | Improvement and reason | Acceptance criterion / dependency | Wallet v2 status and remaining acceptance |
+| ID | Priority / effort / proposed owner | Improvement and reason | Acceptance criterion / dependency | LCV Passport - Wallet v2 status and remaining acceptance |
 | --- | --- | --- | --- | --- |
 | UX-01 | P0 / M / Product + design | Make the mobile learner wallet the default entry. Put university and employer tools behind an explicit demo role chooser. | Learner lands on credentials and pending requests; returning users resume the right context. A visible demo control can still switch roles. No simulated authentication is presented as institutional security. | **implemented** — Learner default and explicit studio role chooser. Browser journey. |
 | UX-02 | P0 / M / Design + engineering | Introduce short learner screens: Wallet, credential detail, request review, confirmation, activity/settings. Reduce the repeated hero and move implementation material out of the transaction. | The current task and primary action are visible at 390×844 without traversing unrelated panels. Important warnings remain available before decisions. All screens work at 320 px and 200% text zoom. | **implemented** — Separate wallet/detail/request/review/confirmation/activity/settings screens. 320/390/430/1440px and 200% zoom checks. |

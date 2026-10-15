@@ -1,4 +1,4 @@
-# Learning Passport — LearnCard × ITU LVC reference wallet
+# LCV Passport - Wallet v1 — LearnCard × ITU LVC reference wallet
 
 A working browser application with a fictional university, a learner wallet, and an employer verifier. Real LearnCard signatures are independently verified using Digital Bazaar. The selected target is **demonstrated alignment with a subset of the ITU LVC-3 working draft**, not certification or complete production conformance.
 

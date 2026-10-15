@@ -1,10 +1,10 @@
-# Showcase and test plan — Wallet v1 / Wallet v2
+# Showcase and test plan — LCV Passport - Wallet v1 / LCV Passport - Wallet v2
 
-Updated 15 October 2026 after implementation and private deployment of Wallet v2. The original hosted product is now **Wallet v1**. This plan retains the original scenario IDs and acceptance criteria; its evidence column reflects the delivered v2 build rather than treating completed work as future work.
+Updated 15 October 2026 after implementation and private deployment of LCV Passport - Wallet v2. The original hosted product is now **LCV Passport - Wallet v1**. This plan retains the original scenario IDs and acceptance criteria; its evidence column reflects the delivered v2 build rather than treating completed work as future work.
 
 ## Current release position
 
-[Wallet v2](https://learning-passport-wallet-v2.wellanole256.chatgpt.site/) is deployed owner-private. [Wallet v1](https://learning-passport-wallet-preview.wellanole256.chatgpt.site/) remains available separately with its original workflow/storage. V2's [release manifest](../../v2/evidence/release.json), [deployment record](../../v2/evidence/deployment.json), [local-package browser test](../../v2/evidence/local-package-browser.json) and [backlog status](../../v2/docs/backlog-status.json) are the evidence baseline.
+[LCV Passport - Wallet v2](https://learning-passport-wallet-v2.wellanole256.chatgpt.site/) is deployed owner-private. [LCV Passport - Wallet v1](https://learning-passport-wallet-preview.wellanole256.chatgpt.site/) remains available separately with its original workflow/storage. V2's [release manifest](../../v2/evidence/release.json), [deployment record](../../v2/evidence/deployment.json), [local-package browser test](../../v2/evidence/local-package-browser.json) and [backlog status](../../v2/docs/backlog-status.json) are the evidence baseline.
 
 Seven v2 Node tests and production browser scenarios pass. The recorded browser checks include widths 320/390/430/1440, 200% zoom, 44 px buttons, consent/cancel, fresh-context recovery, second-issuer receipt, suspension, warm offline reload and no external requests. The result-screen axe scan reports zero violations in that tested scope. Separate service and storage-fault browser tests also pass. These are Chromium and local-service results, not real iOS/Android, human accessibility or novice-study results.
 
@@ -14,7 +14,7 @@ The complete showcase gate below is **not yet fully accepted** because physical-
 
 Show one adult graduate carrying a qualification into an employment application. Use fictional university, employer and authority identities. Explain once that this is a synthetic demonstration of real credential cryptography, not a national accreditation service.
 
-The mobile learner is the central product in Wallet v2. Its hosted Demo tools switch between co-located fictional roles. The separate local Node PoC has distinct issuer/authority/verifier processes and browser-held learner keys; those services and the OpenID endpoints are not running behind the hosted demo. Describe role switching as a demonstration shortcut, not cross-device exchange.
+The mobile learner is the central product in LCV Passport - Wallet v2. Its hosted Demo tools switch between co-located fictional roles. The separate local Node PoC has distinct issuer/authority/verifier processes and browser-held learner keys; those services and the OpenID endpoints are not running behind the hosted demo. Describe role switching as a demonstration shortcut, not cross-device exchange.
 
 ## Five-minute demonstration using the implemented v2 UI
 
@@ -66,7 +66,7 @@ Expected outcomes remain acceptance requirements. The last column records execut
 
 ## Performance and usability measurements
 
-Set targets before testing, then report actual results. Suggested initial targets: guided demo ≤5 minutes; ≥4/5 novice completion without coaching; every participant identifies recipient and actual disclosed data; first actionable screen ≤3 seconds and normal share/verify feedback ≤2 seconds on a named midrange phone/network after engine initialization. Measure cold-start separately: Wallet v1 included about 8.84 MB raw signing WASM and 1.27 MB raw JavaScript, so size, compression, caching and startup timing need device evidence. These size figures are observed build output, not measured transfer sizes or mobile timings.
+Set targets before testing, then report actual results. Suggested initial targets: guided demo ≤5 minutes; ≥4/5 novice completion without coaching; every participant identifies recipient and actual disclosed data; first actionable screen ≤3 seconds and normal share/verify feedback ≤2 seconds on a named midrange phone/network after engine initialization. Measure cold-start separately: LCV Passport - Wallet v1 included about 8.84 MB raw signing WASM and 1.27 MB raw JavaScript, so size, compression, caching and startup timing need device evidence. These size figures are observed build output, not measured transfer sizes or mobile timings.
 
 A release evidence record should include UTC timestamp, source SHA, application mode, build/archive hashes, test runner and version, OS/browser/device, network/cache conditions, scenario IDs, pass/fail/skip with reasons, deployment URL/ID and an explicit live-route verification result. Preserve redacted artifacts, never wallet seeds or real learner data. Historical JSON summaries must not be rewritten to pretend they were produced by a newer release.
 

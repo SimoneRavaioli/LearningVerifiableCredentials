@@ -1,4 +1,4 @@
-# Learning Passport — LearnCard × ITU LVC reference wallet
+# LCV Passport - Wallet v1 — LearnCard × ITU LVC reference wallet
 
 A working browser application with a fictional university, a learner wallet, and an employer verifier. Real LearnCard signatures are independently verified using Digital Bazaar. The selected target is **demonstrated alignment with a subset of the ITU LVC-3 working draft**, not certification or complete production conformance.
 
@@ -101,11 +101,3 @@ Default download files are in /workspace/library-files/lvc-delivery; set PREVIEW
 **An all-interface listener is not a public URL.** Device access requires the platform's authenticated port-forwarding/preview bridge. No external tunnel or hosted Site was created. The current Codex file-opening requests return queued and the user reports that the Cloud-file viewer fails. Cloud-side tests prove HTTP access, the original credential journey, and downloaded ZIP byte integrity; they do not prove desktop access. File mode changes did not resolve the viewer error.
 
 Evidence: evidence/cloud-preview.json, evidence/cloud-preview-log.txt, and evidence/preview-adapter.txt. Run npm run test:cloud-preview only with both servers running in a synthetic test environment; it exercises issuance and changes local demonstration state.
-
-## Interactive browser preview
-
-The browser-local version is in `preview/`. Run `cd preview`, `npm ci`, then `npm run dev`. The full Node application remains at the repository root.
-
-Live owner-private preview: https://learning-passport-wallet-preview.wellanole256.chatgpt.site
-
-Generated source ZIPs and local launch packages are available on the deployed preview and are excluded from source control.

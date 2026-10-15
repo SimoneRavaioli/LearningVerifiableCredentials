@@ -1,4 +1,4 @@
-# Learning Passport interactive preview
+# LCV Passport - Wallet v1
 
 Browser-local UX preview using real LearnCard signing and independent Digital Bazaar verification. Synthetic university, learner and employer roles share this browser for demonstration. This does not represent institutional role isolation or ITU certification. Signed status and trust artifacts remain local to the demonstration.
 

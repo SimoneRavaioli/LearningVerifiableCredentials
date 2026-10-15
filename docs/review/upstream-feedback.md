@@ -1,10 +1,10 @@
-# Proposed feedback to ITU LVC and LearnCard — after Wallet v2
+# Proposed feedback to ITU LVC and LearnCard — after LCV Passport - Wallet v2
 
 These are draft contributions for discussion, **not issues or messages already sent**. Evidence comes from ITU material retrieved on 14 October 2026, LearnCard repository commit `1de9e4a8aed6a03b9428a6fa7895c9681e50ea7e`, and the named npm releases. Check the latest upstream version and existing issues before filing. Our cloud-preview access failures and our custom backup limitations are primarily our delivery/application responsibilities, not evidence that either upstream specification is defective.
 
 ## V2 implementation update — 15 October 2026
 
-The original product is now Wallet v1; [Wallet v2](https://learning-passport-wallet-v2.wellanole256.chatgpt.site/) is separately deployed owner-private. These proposals incorporate its [recorded release](../../v2/evidence/release.json) and [LearnCard protocol test](../../v2/docs/learncard-protocol-status.md), without pretending the upstream ITU draft was freshly retrieved or an upstream change was made. No feedback has been sent.
+The original product is now LCV Passport - Wallet v1; [LCV Passport - Wallet v2](https://learning-passport-wallet-v2.wellanole256.chatgpt.site/) is separately deployed owner-private. These proposals incorporate its [recorded release](../../v2/evidence/release.json) and [LearnCard protocol test](../../v2/docs/learncard-protocol-status.md), without pretending the upstream ITU draft was freshly retrieved or an upstream change was made. No feedback has been sent.
 
 V2 replaces several v1 application gaps: readable mobile consent, a pinned OB3 application subset, clean-browser holder recovery, multi-issuer UI receipt, isolated local service roles and an unmodified LearnCard OpenID-plugin issuance/presentation round trip. The main UI still shares full credentials; selective disclosure is a separate experimental JOSE module. Consumer-app/device studies, complete education-model certification, institutional trust and production operations remain unproven.
 

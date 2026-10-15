@@ -1,6 +1,6 @@
-# ITU, LearnCard and application responsibility map — Wallet v1 / v2
+# ITU, LearnCard and application responsibility map — LCV Passport - Wallet v1 / v2
 
-Updated 15 October 2026 after Wallet v2 deployment. **Wallet v1** is the original product previously named Wallet Preview. The URLs and independent browser stores remain unchanged: [Wallet v1](https://learning-passport-wallet-preview.wellanole256.chatgpt.site/) and [Wallet v2](https://learning-passport-wallet-v2.wellanole256.chatgpt.site/).
+Updated 15 October 2026 after LCV Passport - Wallet v2 deployment. **LCV Passport - Wallet v1** is the original product previously named Wallet Preview. The URLs and independent browser stores remain unchanged: [LCV Passport - Wallet v1](https://learning-passport-wallet-preview.wellanole256.chatgpt.site/) and [LCV Passport - Wallet v2](https://learning-passport-wallet-v2.wellanole256.chatgpt.site/).
 
 ITU provides an education-sector draft profile and governance requirements. LearnCard supplies SDK APIs and optional platform services. W3C, OpenID and 1EdTech supply public formats/protocols. Our application supplies UX, persistence and policy adapters. There is no separate LearnCard certification established here.
 
@@ -10,16 +10,16 @@ ITU evidence remains the Phase 1 working draft retrieved on 14 October 2026, not
 
 | Mode | Actual custody / deployment | Claims that must stay separate |
 | --- | --- | --- |
-| Wallet v1 Node reference | Server-side learner-key custody and HTTP role controls. | Does not provide v2 clean-browser recovery or v2 mobile screens. |
-| Wallet v1 hosted browser demo | Issuer, holder and authority keys at one browser origin; role-password simulation. | Does not inherit the Node server's institutional isolation. |
-| Wallet v2 hosted browser demo | Focused mobile learner UI, encrypted local state, two demo issuers and holder-only recovery. | Still co-locates demo identities; full disclosure. Static hosting does not run the isolated services or consumer-wallet integration. |
-| Wallet v2 local Node / OpenID PoC | Distinct service processes/origins; holder key stays in browser; verifier anchor configured independently of presented evidence. | Same local administrator and synthetic governance; not separate institutions, secure hardware or a consumer-app deployment. |
+| LCV Passport - Wallet v1 Node reference | Server-side learner-key custody and HTTP role controls. | Does not provide v2 clean-browser recovery or v2 mobile screens. |
+| LCV Passport - Wallet v1 hosted browser demo | Issuer, holder and authority keys at one browser origin; role-password simulation. | Does not inherit the Node server's institutional isolation. |
+| LCV Passport - Wallet v2 hosted browser demo | Focused mobile learner UI, encrypted local state, two demo issuers and holder-only recovery. | Still co-locates demo identities; full disclosure. Static hosting does not run the isolated services or consumer-wallet integration. |
+| LCV Passport - Wallet v2 local Node / OpenID PoC | Distinct service processes/origins; holder key stays in browser; verifier anchor configured independently of presented evidence. | Same local administrator and synthetic governance; not separate institutions, secure hardware or a consumer-app deployment. |
 
 ## ITU provisions used and current coverage
 
 Rows 1–5 are exact identifiers scoped to §6.4, not globally stable invented IDs. LVC-1/2/3 are alternative profiles, not maturity levels. “Demonstrated” means within the named synthetic mode, not complete conformance.
 
-| ITU provision | Wallet v1 | Wallet v2 / evidence | Remaining limit |
+| ITU provision | LCV Passport - Wallet v1 | LCV Passport - Wallet v2 / evidence | Remaining limit |
 | --- | --- | --- | --- |
 | [§2 LVC-3](https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/2.-conformance-profiles) and §3 UC-05 | Learner receives and presents a diploma through three role tabs. | Learner default, short screens, readable request approval and explicit result. Browser journey passes. | Hosted demo roles are not distinct institutional security boundaries. |
 | §3 UC-06; §6.4 row 2 RECOMMENDED, multi-issuer bundles | Toolkit bundle verified; foreign-issuer UI receipt missing. | Two demo issuers, signed-file import with holder binding, second-issuer UI receipt and independent per-credential bundle checks in `v2/tests/core.test.mjs`. | Arbitrary consumer-wallet/jurisdiction compatibility still requires partner tests. Import never grants issuer trust. |
@@ -34,7 +34,7 @@ Rows 1–5 are exact identifiers scoped to §6.4, not globally stable invented I
 
 ## Executed LearnCard APIs and selected public standards
 
-| Component | Version / standard | Wallet v1 use | Wallet v2 use and boundary |
+| Component | Version / standard | LCV Passport - Wallet v1 use | LCV Passport - Wallet v2 use and boundary |
 | --- | --- | --- | --- |
 | `@learncard/core` | 9.4.38 | `generateLearnCard`, `addPlugin` composition. | Same native primitives in shared identity module. SDK composition is not a consumer wallet or governance service. |
 | `@learncard/didkit-plugin` | 1.10.3 | Locally loaded WASM signing; hash pinned. | Same pinned WASM and DataIntegrityProof signing. Compact-JWT wrapper defect remains a version-scoped finding; v2 did not patch it. |
