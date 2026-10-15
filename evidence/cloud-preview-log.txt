@@ -1,0 +1,10 @@
+{
+  "cloudBrowserPassed": true,
+  "originalNodeWallet": true,
+  "previewPort": 4173,
+  "fullJourneyPassed": true,
+  "downloadBytesMatch": true,
+  "sourceZipBytes": 533073,
+  "pageErrors": [],
+  "desktopDeviceRouteVerified": false
+}

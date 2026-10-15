@@ -1,0 +1,34 @@
+export const CONTEXT = ['https://www.w3.org/ns/credentials/v2', {
+    UniversityDegreeCredential:'https://example.edu/vocab/UniversityDegreeCredential',
+    degree:{'@id':'https://schema.org/hasCredential','@context':{
+        BachelorDegree:'https://schema.org/EducationalOccupationalCredential',
+        awardDate:{'@id':'https://schema.org/dateCreated','@type':'http://www.w3.org/2001/XMLSchema#date'}
+    }}
+}];
+export const diplomaSchema = {
+    type:'object',required:['@context','id','type','issuer','validFrom','credentialSubject','credentialStatus','proof'],
+    properties:{
+        '@context':{type:'array',minItems:2},id:{type:'string',pattern:'^urn:uuid:'},
+        type:{type:'array',contains:{const:'UniversityDegreeCredential'}},
+        issuer:{type:'string',pattern:'^did:key:z6Mk'},
+        validFrom:{type:'string'},validUntil:{type:'string'},
+        name:{type:'string'},description:{type:'string'},
+        credentialSubject:{type:'object',required:['id','name','degree'],additionalProperties:false,properties:{
+            id:{type:'string',pattern:'^did:key:z6Mk'},name:{type:'string',minLength:1,maxLength:120},
+            degree:{type:'object',required:['type','name','awardDate'],additionalProperties:false,properties:{
+                type:{const:'BachelorDegree'},name:{type:'string',minLength:1,maxLength:200},awardDate:{type:'string',pattern:'^\\d{4}-\\d{2}-\\d{2}$'}
+            }}
+        }},
+        credentialStatus:{type:'array',minItems:2,maxItems:2,items:{type:'object',required:['id','type','statusPurpose','statusListIndex','statusListCredential'],properties:{
+            id:{type:'string'},type:{const:'BitstringStatusListEntry'},statusPurpose:{enum:['revocation','suspension']},statusListIndex:{type:'string',pattern:'^\\d+$'},statusListCredential:{type:'string'}
+        }}},
+        proof:{type:'object',required:['type','cryptosuite','proofValue','verificationMethod','proofPurpose'],properties:{
+            type:{const:'DataIntegrityProof'},cryptosuite:{const:'eddsa-rdfc-2022'},proofPurpose:{const:'assertionMethod'},proofValue:{type:'string'},verificationMethod:{type:'string'}
+        }}
+    },
+    additionalProperties:false
+};
+export function isDate(value) {
+    return typeof value==='string' && /^\d{4}-\d{2}-\d{2}$/.test(value) &&
+        !Number.isNaN(Date.parse(value)) && new Date(value).toISOString().slice(0,10)===value;
+}

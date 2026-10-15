@@ -1,0 +1,262 @@
+[
+  {
+    "id": "1",
+    "requirement": "The verifier SHALL check that the issuer is listed in the trust arrangement of the profile and was authorised for this credential type on the issue date",
+    "profile": "LVC-3",
+    "level": "REQUIRED",
+    "learncardCapability": "Application responsibility",
+    "approach": "Custom",
+    "implementation": "Published demonstration registry with scope and historical validity intervals",
+    "status": "Demonstrated",
+    "evidence": {
+      "tests": [
+        "tests/verification.test.mjs: unknown, wrong-scope and historically unauthorized issuers are untrusted",
+        "tests/verification.test.mjs: recognition policy is distinct"
+      ],
+      "result": "passed",
+      "log": "evidence/tests.txt",
+      "browser": null
+    },
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/6.-specification#64-functional-requirements",
+    "verified": true,
+    "sourceStatus": "Phase 1 working draft, retrieved 2026-10-14",
+    "component": "independent/verifier.mjs: evaluateCredential",
+    "limits": "Demonstrated in synthetic local reference environment; no national governance or official certification claim."
+  },
+  {
+    "id": "2",
+    "requirement": "A presentation MAY bundle credentials from distinct issuers, the verifier SHALL verify each credential independently, preserving its issuer and evidence",
+    "profile": "LVC-3",
+    "level": "RECOMMENDED",
+    "learncardCapability": "DIDKit + DID Key + VC plugins",
+    "approach": "Native + Adapter",
+    "implementation": "LearnCard VP + per-credential independent verifier",
+    "status": "Partially demonstrated",
+    "evidence": {
+      "tests": [
+        "tests/interoperability.test.mjs: bundled credentials from distinct issuers are verified separately"
+      ],
+      "result": "passed",
+      "log": "evidence/tests.txt",
+      "browser": null
+    },
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/6.-specification#64-functional-requirements",
+    "verified": true,
+    "sourceStatus": "Phase 1 working draft, retrieved 2026-10-14",
+    "component": "independent/verifier.mjs: evaluatePresentation",
+    "limits": "Verifier supports multi-issuer bundles; native wallet receives only local university credentials. Independent holder toolkit bundle tested; third-party consumer wallet not tested."
+  },
+  {
+    "id": "3",
+    "requirement": "Status and issuer authority SHALL be checkable from published status lists and trust registries, without a live query to the issuer or to any learner record",
+    "profile": "LVC-3",
+    "level": "REQUIRED",
+    "learncardCapability": "Application responsibility",
+    "approach": "Adapter",
+    "implementation": "Signed shared status lists and static trust snapshots; verifier receives cache",
+    "status": "Demonstrated",
+    "evidence": {
+      "tests": [
+        "tests/verification.test.mjs: verification works offline with signed snapshots",
+        "tests/verification.test.mjs: revocation and suspension are independently checked"
+      ],
+      "result": "passed",
+      "log": "evidence/tests.txt",
+      "browser": null
+    },
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/6.-specification#64-functional-requirements",
+    "verified": true,
+    "sourceStatus": "Phase 1 working draft, retrieved 2026-10-14",
+    "component": "server/service.mjs: publish/snapshots; independent/verifier.mjs: inspectStatus",
+    "limits": "Demonstrated in synthetic local reference environment; no national governance or official certification claim."
+  },
+  {
+    "id": "4",
+    "requirement": "The holder SHALL be shown, and SHALL approve, the full set of credentials and attributes requested before any presentation is made",
+    "profile": "LVC-3",
+    "level": "REQUIRED",
+    "learncardCapability": "Application responsibility",
+    "approach": "Custom",
+    "implementation": "Consent view with full signed payload, recipient and purpose; API enforces request match",
+    "status": "Demonstrated",
+    "evidence": {
+      "tests": [
+        "tests/lifecycle.test.mjs: explicit approval and unchanged disclosure are enforced",
+        "tests/browser.mjs: consent checkbox gates authorization"
+      ],
+      "result": "passed",
+      "log": "evidence/tests.txt",
+      "browser": "evidence/browser.json"
+    },
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/6.-specification#64-functional-requirements",
+    "verified": true,
+    "sourceStatus": "Phase 1 working draft, retrieved 2026-10-14",
+    "component": "src/main.jsx: disclosure/approval; server/service.mjs: present",
+    "limits": "Demonstrated in synthetic local reference environment; no national governance or official certification claim."
+  },
+  {
+    "id": "5",
+    "requirement": "The verifier SHALL NOT retain or infer attributes beyond those presented and approved for the stated purpose",
+    "profile": "LVC-3",
+    "level": "REQUIRED",
+    "learncardCapability": "Application responsibility",
+    "approach": "Custom",
+    "implementation": "Transient verification; no credential/presentation logging or database retention",
+    "status": "Demonstrated",
+    "evidence": {
+      "tests": [
+        "tests/lifecycle.test.mjs: replay is rejected and presentations are removed",
+        "tests/api.test.mjs: verifier cannot retrieve issuer/holder records"
+      ],
+      "result": "passed",
+      "log": "evidence/tests.txt",
+      "browser": null
+    },
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/6.-specification#64-functional-requirements",
+    "verified": true,
+    "sourceStatus": "Phase 1 working draft, retrieved 2026-10-14",
+    "component": "server/service.mjs: verifyRequest; server/app.mjs: auth/state",
+    "limits": "Demonstrated in synthetic local reference environment; no national governance or official certification claim."
+  },
+  {
+    "id": null,
+    "requirement": "Vendor neutrality SHALL allow independent wallet receipt and independent verification",
+    "profile": "LVC-3",
+    "level": "SHALL",
+    "learncardCapability": "VC issuance/export",
+    "approach": "Native + Adapter",
+    "implementation": "Independent JOSE verifier; third-party wallet experiment recorded separately",
+    "status": "Partially demonstrated",
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/6.-specification#63-cross-cutting-requirements",
+    "evidence": {
+      "tests": [
+        "tests/interoperability.test.mjs"
+      ],
+      "result": "passed",
+      "log": "evidence/tests.txt"
+    },
+    "verified": true,
+    "sourceStatus": "Phase 1 working draft, retrieved 2026-10-14",
+    "limits": "Independent Digital Bazaar verifier and holder toolkit demonstrated; a deployed third-party wallet and interoperable standardized issuance transport have not been demonstrated."
+  },
+  {
+    "id": null,
+    "requirement": "LVC-1 and LVC-2 issuance/procurement profiles",
+    "profile": "LVC-1/LVC-2",
+    "level": "Guidance or incomplete provision; not one of the five numbered functional rows",
+    "learncardCapability": "See docs/capabilities.json",
+    "approach": "Unresolved or out of scope",
+    "status": "Not applicable",
+    "evidence": {
+      "report": "docs/gap-analysis.md"
+    },
+    "limits": "Profile alternatives, not higher levels; no paper/PDF or central online verification target.",
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/2.-conformance-profiles",
+    "verified": false
+  },
+  {
+    "id": null,
+    "requirement": "Section 4.3 governed entry/exit and historical issuer records",
+    "profile": "LVC-3",
+    "level": "Guidance or incomplete provision; not one of the five numbered functional rows",
+    "learncardCapability": "See docs/capabilities.json",
+    "approach": "Unresolved or out of scope",
+    "status": "Partially demonstrated",
+    "evidence": {
+      "report": "docs/gap-analysis.md"
+    },
+    "limits": "Signed synthetic registry with historical scope intervals; no independent accreditation authority or operational key rotation.",
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/4.-ecosystem-and-trust#43-trust-pattern-per-profile",
+    "verified": false
+  },
+  {
+    "id": null,
+    "requirement": "Section 5 data-model and vocabulary alignment",
+    "profile": "LVC-3",
+    "level": "Guidance or incomplete provision; not one of the five numbered functional rows",
+    "learncardCapability": "See docs/capabilities.json",
+    "approach": "Unresolved or out of scope",
+    "status": "Partially demonstrated",
+    "evidence": {
+      "report": "docs/gap-analysis.md"
+    },
+    "limits": "VC 2.0 with a documented local academic schema and Schema.org terms; no full Open Badges 3.0, CLR 2.0, ELM, multilingual or country code-schema validation.",
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/5.-data-models",
+    "verified": false
+  },
+  {
+    "id": null,
+    "requirement": "Names in original script SHOULD be retained; automatic transliteration SHALL NOT be official",
+    "profile": "LVC-3",
+    "level": "Guidance or incomplete provision; not one of the five numbered functional rows",
+    "learncardCapability": "See docs/capabilities.json",
+    "approach": "Unresolved or out of scope",
+    "status": "Partially demonstrated",
+    "evidence": {
+      "report": "docs/gap-analysis.md"
+    },
+    "limits": "UTF-8 name stored as entered; no transliteration or translation generated; multilingual/script tests not executed.",
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/5.-data-models#53-languages",
+    "verified": false
+  },
+  {
+    "id": null,
+    "requirement": "Long-term verifiability, decades and closed institutions",
+    "profile": "LVC-3",
+    "level": "Guidance or incomplete provision; not one of the five numbered functional rows",
+    "learncardCapability": "See docs/capabilities.json",
+    "approach": "Unresolved or out of scope",
+    "status": "Not demonstrated",
+    "evidence": {
+      "report": "docs/gap-analysis.md"
+    },
+    "limits": "Self-contained did:key and retained issuer records help; operational decades-long archival not tested.",
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/2.-conformance-profiles",
+    "verified": false
+  },
+  {
+    "id": null,
+    "requirement": "Section 6.2/6.3 incomplete topics and 6.5 Phase 2 APIs/schema/workflows",
+    "profile": "LVC-3",
+    "level": "Guidance or incomplete provision; not one of the five numbered functional rows",
+    "learncardCapability": "See docs/capabilities.json",
+    "approach": "Unresolved or out of scope",
+    "status": "Not demonstrated",
+    "evidence": {
+      "report": "docs/gap-analysis.md"
+    },
+    "limits": "Upstream placeholders prevent final exhaustive conformance validation. No invented requirements.",
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/6.-specification",
+    "verified": false
+  },
+  {
+    "id": null,
+    "requirement": "Section 7 LVC-3 procurement clauses",
+    "profile": "LVC-3",
+    "level": "Guidance or incomplete provision; not one of the five numbered functional rows",
+    "learncardCapability": "See docs/capabilities.json",
+    "approach": "Unresolved or out of scope",
+    "status": "Not demonstrated",
+    "evidence": {
+      "report": "docs/gap-analysis.md"
+    },
+    "limits": "Marked Coming soon in source; no tender-level certification claimed.",
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/7.-procurement-rfp-clauses",
+    "verified": false
+  },
+  {
+    "id": null,
+    "requirement": "Selective disclosure / unlinkability and OpenID4VCI/VP",
+    "profile": "LVC-3",
+    "level": "Guidance or incomplete provision; not one of the five numbered functional rows",
+    "learncardCapability": "See docs/capabilities.json",
+    "approach": "Unresolved or out of scope",
+    "status": "Not demonstrated",
+    "evidence": {
+      "report": "docs/gap-analysis.md"
+    },
+    "limits": "Full-disclosure W3C VP over documented local JSON API. OpenID protocols and browser DC API not implemented.",
+    "source": "https://experience-digital-transform.gitbook.io/experience-digital-transformation/dpi-for-education/learning-verifiable-credentials/specifications/8.-sources-and-standards",
+    "verified": false
+  }
+]

@@ -1,0 +1,18 @@
+
+> itu-lvc-learncard-wallet@0.1.0 build
+> vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 23 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.42 kB │ gzip:  0.30 kB
+dist/assets/index-Du6k-L4r.css    9.16 kB │ gzip:  2.74 kB
+dist/assets/index-SZ5OU3kx.js   213.77 kB │ gzip: 66.03 kB
+✓ built in 593ms
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

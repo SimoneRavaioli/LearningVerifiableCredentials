@@ -1,0 +1,21 @@
+{
+  "install": {
+    "exitCode": 0,
+    "args": [
+      "--cache",
+      "/workspace/.npm-cache",
+      "ci",
+      "--omit=dev",
+      "--omit=optional",
+      "--omit=peer"
+    ]
+  },
+  "test": {
+    "args": [
+      "test"
+    ],
+    "exitCode": 0,
+    "stdout": "\n> itu-lvc-learncard-wallet@0.1.0 test\n> node --test tests/*.test.mjs\n\n✔ HTTP role authorization, CSRF, origin rejection and privacy boundaries (161.287153ms)\n✔ independent Digital Bazaar holder imports, persists, displays and presents original LearnCard credential (267.032367ms)\n✔ a different holder cannot import subject-bound credentials as its own (36.983953ms)\n✔ bundled credentials from distinct issuers are verified separately in an independent holder presentation (89.800262ms)\n✔ separate issuer, learner and governance identities persist across sessions (132.374768ms)\n✔ issue, receive, store, consent, present and independently verify a diploma (86.624355ms)\n✔ explicit approval and unchanged disclosure are enforced (38.004568ms)\n✔ backup and identity recovery preserve original proofs; wrong passwords fail (136.20143ms)\n✔ replay is rejected and presentations are removed after transient verification (58.30919ms)\n✔ invalid award dates and unsupported status transitions are rejected (37.087444ms)\n✔ concurrent issuance persists distinct indices and proofs without vault corruption (66.388138ms)\n✔ independent verifier rejects tampering and invalid signature (169.542229ms)\n✔ schema rejects malformed data and context injection (45.735265ms)\n✔ expired credentials remain cryptographically valid but are not technically valid (27.927264ms)\n✔ revocation and suspension are independently checked from signed published lists (82.932036ms)\n✔ unknown, wrong-scope and historically unauthorized issuers are untrusted (64.944007ms)\n✔ recognition policy is distinct from signature, status and issuer trust (23.288151ms)\n✔ verification works offline with signed snapshots and rejects corrupted or missing caches (46.839222ms)\n✔ holder challenge and audience prevent cross-request replay (42.072175ms)\n✔ multi-issuer presentations preserve per-credential issuer and independent proof results (27.029436ms)\nℹ tests 20\nℹ suites 0\nℹ pass 20\nℹ fail 0\nℹ cancelled 0\nℹ skipped 0\nℹ todo 0\nℹ duration_ms 2825.391603\n",
+    "stderr": "npm notice\nnpm notice New major version of npm available! 11.9.0 -> 12.2.0\nnpm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0\nnpm notice To update run: npm install -g npm@12.2.0\nnpm notice\n"
+  }
+}

@@ -1,0 +1,12 @@
+node_modules/
+dist/
+.data/
+.env
+.npm/
+*.log
+research/*/package/dist/
+research/*.tgz
+
+research/
+.env.*
+!.env.example

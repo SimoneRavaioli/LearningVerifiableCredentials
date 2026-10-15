@@ -1,0 +1,62 @@
+import {chromium} from 'playwright';
+import {spawn} from 'node:child_process';
+import {mkdtemp,rm,writeFile,mkdir} from 'node:fs/promises';
+import assert from 'node:assert/strict';
+
+const directory=await mkdtemp('/tmp/lvc-browser-');
+const child=spawn(process.execPath,['server/index.mjs'],{env:{...process.env,PORT:'3101',HOST:'127.0.0.1',BASE_URL:'http://localhost:3101',DATA_DIR:directory},stdio:['ignore','pipe','pipe']});
+let browser;
+try{
+    await new Promise((resolve,reject)=>{
+        const timeout=setTimeout(()=>reject(new Error('Server startup timeout')),15000);
+        child.stdout.on('data',data=>{if(data.toString().includes('available at')){clearTimeout(timeout);resolve();}});
+        child.on('exit',code=>reject(new Error('Server exited '+code)));
+        child.stderr.on('data',data=>process.stderr.write(data));
+    });
+    browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH??'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+    const page=await browser.newPage({viewport:{width:1440,height:1100}});
+    const browserErrors=[];page.on('pageerror',e=>browserErrors.push(e.message));
+    await page.goto('http://localhost:3101');
+    await page.getByRole('button',{name:'Sign in as University',exact:true}).click();
+    await page.getByRole('button',{name:'Sign & deliver diploma'}).click();
+    await page.getByText('Diploma signed and delivered to the learner inbox.',{exact:true}).waitFor();
+    await page.getByRole('button',{name:/3 Verify Employer/}).click();
+    await page.getByRole('button',{name:'Sign in as Employer',exact:true}).click();
+    await page.getByRole('button',{name:'Request evidence'}).click();
+    await page.getByText('Evidence request created. The learner can review and approve it in Hold.',{exact:true}).waitFor();
+    await page.getByRole('button',{name:/2 Hold Learner/}).click();
+    await page.getByRole('button',{name:'Sign in as Learner',exact:true}).click();
+    await page.getByRole('button',{name:'Receive diploma',exact:true}).click();
+    await page.getByText('Credential checked and saved to your wallet.',{exact:true}).waitFor();
+    await page.getByRole('checkbox',{name:'Select for presentation'}).check();
+    await page.getByRole('button',{name:'Review disclosure',exact:true}).click();
+    const consent=page.getByRole('checkbox',{name:'I approve sharing these full credentials and attributes for this purpose.'});
+    await consent.waitFor();
+    assert.equal(await page.getByRole('button',{name:'Authorize & present',exact:true}).isEnabled(),false);
+    await consent.check();
+    await page.getByRole('button',{name:'Authorize & present',exact:true}).click();
+    await page.getByText('Signed presentation delivered to the employer. A portable copy was downloaded.',{exact:true}).waitFor();
+    await page.getByRole('button',{name:/3 Verify Employer/}).click();
+    await page.getByRole('button',{name:'Sign in as Employer',exact:true}).click();
+    await page.getByRole('button',{name:'Verify presentation',exact:true}).click();
+    await page.getByText('Accepted under demo policy',{exact:true}).waitFor();
+    await mkdir('evidence',{recursive:true});
+    await page.screenshot({path:'evidence/desktop-verification.png',fullPage:true});
+    assert.equal(await page.locator('body').evaluate(el=>el.scrollWidth<=globalThis.innerWidth),true);
+    await page.setViewportSize({width:390,height:844});
+    await page.screenshot({path:'evidence/mobile-verification.png',fullPage:true});
+    assert.equal(await page.locator('body').evaluate(el=>el.scrollWidth<=globalThis.innerWidth),true);
+    await page.getByRole('button',{name:/2 Hold Learner/}).click();
+    await page.getByRole('button',{name:'Sign in as Learner',exact:true}).click();
+    await page.reload();
+    await page.getByRole('heading',{name:'Your credentials',exact:true}).waitFor();
+    assert.equal(await page.getByRole('checkbox',{name:'Select for presentation'}).count(),1);
+    assert.deepEqual(browserErrors,[]);
+    await writeFile('evidence/browser.json',JSON.stringify({passed:true,journey:'University issue → learner receive/store/explicit consent → employer independent verify',desktop:{width:1440,noOverflow:true},mobile:{width:390,noOverflow:true},reloadPersistence:true,consentBeforePresentation:true,pageErrors:browserErrors},null,2));
+    console.log('Browser journey, consent gate, reload persistence, desktop and mobile checks passed.');
+}finally{
+    if(browser)await browser.close();
+    child.kill();
+    await new Promise(resolve=>child.once('exit',resolve));
+    await rm(directory,{recursive:true,force:true});
+}

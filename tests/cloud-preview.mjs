@@ -1,0 +1,56 @@
+import {chromium} from 'playwright';
+import {readFile,writeFile,mkdir} from 'node:fs/promises';
+import {createHash} from 'node:crypto';
+import assert from 'node:assert/strict';
+const browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox']});
+try{
+    const page=await browser.newPage({viewport:{width:1440,height:1100}});
+    const browserErrors=[];page.on('pageerror',e=>browserErrors.push(e.message));
+    await page.goto('http://127.0.0.1:4173');
+    await page.getByRole('button',{name:'Sign in as University',exact:true}).click();
+    await page.getByRole('button',{name:'Sign & deliver diploma'}).click();
+    await page.getByText('Diploma signed and delivered to the learner inbox.',{exact:true}).waitFor();
+    await page.getByRole('button',{name:/3 Verify Employer/}).click();
+    await page.getByRole('button',{name:'Sign in as Employer',exact:true}).click();
+    await page.getByRole('button',{name:'Request evidence'}).click();
+    await page.getByText('Evidence request created. The learner can review and approve it in Hold.',{exact:true}).waitFor();
+    await page.getByRole('button',{name:/2 Hold Learner/}).click();
+    await page.getByRole('button',{name:'Sign in as Learner',exact:true}).click();
+    await page.getByRole('button',{name:'Receive diploma',exact:true}).click();
+    await page.getByText('Credential checked and saved to your wallet.',{exact:true}).waitFor();
+    await page.getByRole('checkbox',{name:'Select for presentation'}).last().check();
+    await page.getByRole('button',{name:'Review disclosure',exact:true}).click();
+    const consent=page.getByRole('checkbox',{name:'I approve sharing these full credentials and attributes for this purpose.'});
+    await consent.waitFor();
+    assert.equal(await page.getByRole('button',{name:'Authorize & present',exact:true}).isEnabled(),false);
+    await consent.check();
+    await page.getByRole('button',{name:'Authorize & present',exact:true}).click();
+    await page.getByText('Signed presentation delivered to the employer. A portable copy was downloaded.',{exact:true}).waitFor();
+    await page.getByRole('button',{name:/3 Verify Employer/}).click();
+    await page.getByRole('button',{name:'Sign in as Employer',exact:true}).click();
+    await page.getByRole('button',{name:'Verify presentation',exact:true}).click();
+    await page.getByText('Accepted under demo policy',{exact:true}).waitFor();
+    await mkdir('evidence',{recursive:true});
+    await page.screenshot({path:'evidence/cloud-preview-desktop.png',fullPage:true});
+    assert.equal(await page.locator('body').evaluate(el=>el.scrollWidth<=globalThis.innerWidth),true);
+    await page.setViewportSize({width:390,height:844});
+    await page.screenshot({path:'evidence/cloud-preview-mobile.png',fullPage:true});
+    assert.equal(await page.locator('body').evaluate(el=>el.scrollWidth<=globalThis.innerWidth),true);
+    await page.getByRole('button',{name:/2 Hold Learner/}).click();
+    await page.getByRole('button',{name:'Sign in as Learner',exact:true}).click();
+    await page.reload();
+    await page.getByRole('heading',{name:'Your credentials',exact:true}).waitFor();
+    assert.ok(await page.getByRole('checkbox',{name:'Select for presentation'}).count()>=1);
+    assert.deepEqual(browserErrors,[]);
+
+    const downloaded=page.waitForEvent('download');
+    await page.evaluate(()=>{const a=globalThis.document.createElement('a');a.href='/downloads/source.zip';a.download='LearningPassport-source.zip';globalThis.document.body.appendChild(a);a.click();a.remove();});
+    const file=await downloaded;
+    assert.equal(await file.failure(),null);
+    const received=await readFile(await file.path()),original=await readFile('/workspace/library-files/lvc-delivery/LearningPassport-source.zip');
+    assert.equal(createHash('sha256').update(received).digest('hex'),createHash('sha256').update(original).digest('hex'));
+    const evidence={cloudBrowserPassed:true,originalNodeWallet:true,previewPort:4173,fullJourneyPassed:true,downloadBytesMatch:true,sourceZipBytes:received.length,pageErrors:browserErrors,desktopDeviceRouteVerified:false};
+    await writeFile('evidence/cloud-preview.json',JSON.stringify(evidence,null,2));
+    console.log(JSON.stringify(evidence,null,2));
+
+}finally{await browser.close();}

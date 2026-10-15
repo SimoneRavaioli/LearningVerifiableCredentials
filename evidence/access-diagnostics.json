@@ -1,0 +1,15 @@
+{
+  "status": "blocked_at_desktop_access_boundary",
+  "cloudWalletHttp": 200,
+  "cloudNetworkInterfaceHttp": 200,
+  "sourceZipHttp": 200,
+  "sourceZipHashMatches": true,
+  "cloudBrowserLifecycle": "passed",
+  "nativeOpenResult": "queued",
+  "userConfirmedFileViewer": "still failing after permission repair",
+  "externalHostingAuthorized": false,
+  "siteCreated": false,
+  "externalTunnelStarted": false,
+  "requiredCapability": "An authenticated platform-supported bridge from the desktop to cloud port 4173, plus functioning Cloud-file delivery",
+  "devicePreviewVerified": false
+}

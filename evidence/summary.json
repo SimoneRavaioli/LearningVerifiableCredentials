@@ -1,0 +1,56 @@
+{
+  "recordedAtUTC": "2026-10-14T21:23:16.490073+00:00",
+  "node": "24.19.0",
+  "npm": "11.9.0",
+  "tests": {
+    "passed": 21,
+    "failed": 0,
+    "log": "evidence/tests.txt"
+  },
+  "lint": {
+    "passed": true,
+    "log": "evidence/lint.txt"
+  },
+  "productionBuild": {
+    "passed": true,
+    "log": "evidence/build.txt"
+  },
+  "browser": {
+    "passed": true,
+    "journey": "University issue \u2192 learner receive/store/explicit consent \u2192 employer independent verify",
+    "desktop": {
+      "width": 1440,
+      "noOverflow": true
+    },
+    "mobile": {
+      "width": 390,
+      "noOverflow": true
+    },
+    "reloadPersistence": true,
+    "consentBeforePresentation": true,
+    "pageErrors": []
+  },
+  "independentCredentialAccepted": true,
+  "independentPresentationAccepted": true,
+  "cleanNodeOnlyRuntimePassed": true,
+  "auditDefaultOptionalChain": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 5,
+    "critical": 0,
+    "total": 5
+  },
+  "auditNodeOnly": {
+    "info": 0,
+    "low": 0,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0,
+    "total": 0
+  },
+  "formalCertification": false,
+  "externalDeployment": false,
+  "cloudAccessDiagnostics": "evidence/access-diagnostics.json",
+  "devicePreviewVerified": false
+}

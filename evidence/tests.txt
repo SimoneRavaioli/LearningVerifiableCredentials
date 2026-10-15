@@ -1,0 +1,38 @@
+
+> itu-lvc-learncard-wallet@0.1.0 test
+> node --test tests/*.test.mjs
+
+✔ HTTP role authorization, CSRF, origin rejection and privacy boundaries (179.190123ms)
+✔ independent Digital Bazaar holder imports, persists, displays and presents original LearnCard credential (247.905241ms)
+✔ a different holder cannot import subject-bound credentials as its own (32.837608ms)
+✔ bundled credentials from distinct issuers are verified separately in an independent holder presentation (95.603832ms)
+✔ separate issuer, learner and governance identities persist across sessions (148.101213ms)
+✔ issue, receive, store, consent, present and independently verify a diploma (88.433878ms)
+✔ explicit approval and unchanged disclosure are enforced (41.085413ms)
+✔ backup and identity recovery preserve original proofs; wrong passwords fail (164.153331ms)
+✔ replay is rejected and presentations are removed after transient verification (64.21049ms)
+✔ invalid award dates and unsupported status transitions are rejected (36.811394ms)
+✔ concurrent issuance persists distinct indices and proofs without vault corruption (58.444551ms)
+✔ internal preview preserves original wallet role security and serves verified file bytes (215.900333ms)
+✔ independent verifier rejects tampering and invalid signature (175.821994ms)
+✔ schema rejects malformed data and context injection (35.32891ms)
+✔ expired credentials remain cryptographically valid but are not technically valid (37.875284ms)
+✔ revocation and suspension are independently checked from signed published lists (80.964712ms)
+✔ unknown, wrong-scope and historically unauthorized issuers are untrusted (59.238334ms)
+✔ recognition policy is distinct from signature, status and issuer trust (20.778604ms)
+✔ verification works offline with signed snapshots and rejects corrupted or missing caches (45.348678ms)
+✔ holder challenge and audience prevent cross-request replay (38.151663ms)
+✔ multi-issuer presentations preserve per-credential issuer and independent proof results (25.855339ms)
+ℹ tests 21
+ℹ suites 0
+ℹ pass 21
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3498.69153
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

@@ -1,0 +1,12 @@
+{
+  "id": "992ce3c5-72ca-480d-93f5-db801b7ec698",
+  "challenge": "jov0iSjlOMV6P7HLpL7gR21XBBJXgh8qT8AOPvG71TA",
+  "domain": "Example Employer",
+  "purpose": "Evaluate a qualification for a software engineering role",
+  "qualification": "Bachelor of Science in Computer Science",
+  "attributes": [
+    "Full credential including learner identifier, name, qualification, award date, issuer, validity, status and proof"
+  ],
+  "expiresAt": 1792046628044,
+  "used": false
+}

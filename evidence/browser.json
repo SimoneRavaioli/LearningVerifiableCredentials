@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "journey": "University issue → learner receive/store/explicit consent → employer independent verify",
+  "desktop": {
+    "width": 1440,
+    "noOverflow": true
+  },
+  "mobile": {
+    "width": 390,
+    "noOverflow": true
+  },
+  "reloadPersistence": true,
+  "consentBeforePresentation": true,
+  "pageErrors": []
+}

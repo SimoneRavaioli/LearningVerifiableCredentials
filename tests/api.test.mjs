@@ -1,0 +1,30 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {mkdtemp,rm} from 'node:fs/promises';
+import {createApp} from '../server/app.mjs';
+
+test('HTTP role authorization, CSRF, origin rejection and privacy boundaries',async t=>{
+    const directory=await mkdtemp('/tmp/lvc-api-');t.after(()=>rm(directory,{recursive:true,force:true}));
+    const {app}=await createApp({directory,baseUrl:'http://localhost:3000'});
+    const server=app.listen(0,'127.0.0.1');await new Promise(resolve=>server.once('listening',resolve));
+    t.after(()=>new Promise(resolve=>server.close(resolve)));
+    const url='http://127.0.0.1:'+server.address().port;
+    const post=(path,body,headers={})=>fetch(url+path,{method:'POST',headers:{'Content-Type':'application/json',...headers},body:JSON.stringify(body)});
+    assert.equal((await post('/api/issue',{})).status,401);
+    assert.equal((await post('/api/login',{role:'issuer',password:'wrong'})).status,401);
+    const login=await post('/api/login',{role:'holder',password:'learner-demo-change-me'});
+    const cookie=login.headers.get('set-cookie').split(';')[0],{csrf}=await login.json();
+    assert.match(login.headers.get('set-cookie'),/HttpOnly/);assert.match(login.headers.get('set-cookie'),/SameSite=Strict/);
+    assert.equal((await post('/api/issue',{}, {Cookie:cookie,'X-CSRF-Token':csrf})).status,403);
+    assert.equal((await post('/api/backup',{password:'correct horse battery staple'},{Cookie:cookie})).status,403);
+    assert.equal((await post('/api/login',{role:'holder',password:'learner-demo-change-me'},{Origin:'https://attacker.invalid'})).status,403);
+    const state=await fetch(url+'/api/state',{headers:{Cookie:cookie}});
+    assert.equal(state.headers.get('cache-control'),'no-store');
+    const data=await state.json();assert.equal(JSON.stringify(data).includes('seeds'),false);
+    const employer=await post('/api/login',{role:'employer',password:'employer-demo-change-me'});
+    const employerCookie=employer.headers.get('set-cookie').split(';')[0];
+    const verifierState=await (await fetch(url+'/api/state',{headers:{Cookie:employerCookie}})).json();
+    assert.deepEqual(verifierState.records,[]);assert.deepEqual(verifierState.pending,[]);
+    const registry=await (await fetch(url+'/public/trust')).json();
+    assert.equal(JSON.stringify(registry).includes('Alex Morgan'),false);
+});

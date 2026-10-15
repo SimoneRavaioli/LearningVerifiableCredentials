@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.env
+.env.*
+.data/
+*.log
+.openai/*.tar.gz
+.openai/source-result.json

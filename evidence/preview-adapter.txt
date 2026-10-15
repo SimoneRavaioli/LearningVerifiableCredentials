@@ -1,0 +1,9 @@
+✔ internal preview preserves original wallet role security and serves verified file bytes (186.205452ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 1
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 543.679995

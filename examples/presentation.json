@@ -1,0 +1,81 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2"
+  ],
+  "type": [
+    "VerifiablePresentation"
+  ],
+  "verifiableCredential": [
+    {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2",
+        {
+          "degree": {
+            "@context": {
+              "BachelorDegree": "https://schema.org/EducationalOccupationalCredential",
+              "awardDate": {
+                "@id": "https://schema.org/dateCreated",
+                "@type": "http://www.w3.org/2001/XMLSchema#date"
+              }
+            },
+            "@id": "https://schema.org/hasCredential"
+          },
+          "UniversityDegreeCredential": "https://example.edu/vocab/UniversityDegreeCredential"
+        }
+      ],
+      "id": "urn:uuid:b47fda3c-bd18-4714-a545-e72213040e77",
+      "type": [
+        "VerifiableCredential",
+        "UniversityDegreeCredential"
+      ],
+      "credentialSubject": {
+        "id": "did:key:z6MkuVnF67B9mBMjehrd75pM5s8nYDT3aApPpNxeScCnfmWx",
+        "name": "Alex Morgan",
+        "degree": {
+          "awardDate": "2026-06-30",
+          "name": "Bachelor of Science in Computer Science",
+          "type": "BachelorDegree"
+        }
+      },
+      "issuer": "did:key:z6MkwcahdcVKg8ygST96L2pNpmrJ8t8FESoQ17kf4L8CByAR",
+      "proof": {
+        "type": "DataIntegrityProof",
+        "proofPurpose": "assertionMethod",
+        "proofValue": "z56BsD1QBFCoTXpWXBpjyftyXCCZQ9StCXw5pXSfJjES6Sknv6fCeh7gsSkTDrKUgV6kizAApffADgvSYfKV6K4a4",
+        "verificationMethod": "did:key:z6MkwcahdcVKg8ygST96L2pNpmrJ8t8FESoQ17kf4L8CByAR#z6MkwcahdcVKg8ygST96L2pNpmrJ8t8FESoQ17kf4L8CByAR",
+        "created": "2026-10-15T06:38:47.992Z",
+        "cryptosuite": "eddsa-rdfc-2022"
+      },
+      "credentialStatus": [
+        {
+          "id": "http://localhost:3000/public/status/revocation#0",
+          "type": "BitstringStatusListEntry",
+          "statusListIndex": "0",
+          "statusListCredential": "http://localhost:3000/public/status/revocation",
+          "statusPurpose": "revocation"
+        },
+        {
+          "id": "http://localhost:3000/public/status/suspension#0",
+          "type": "BitstringStatusListEntry",
+          "statusListCredential": "http://localhost:3000/public/status/suspension",
+          "statusPurpose": "suspension",
+          "statusListIndex": "0"
+        }
+      ],
+      "validFrom": "2026-10-15T06:38:47.991Z",
+      "description": "Academic award from Example University (synthetic demonstration)",
+      "name": "Bachelor of Science in Computer Science"
+    }
+  ],
+  "proof": {
+    "type": "DataIntegrityProof",
+    "proofPurpose": "authentication",
+    "proofValue": "z4eZwtqds2h6pgmvWRwKohbEscnTVtHMKSty6XkZfyZD8VkEBZHe29hHTZTDHTgtY2FZh6AuZ26JvV3n3UeeKUQxa",
+    "challenge": "jov0iSjlOMV6P7HLpL7gR21XBBJXgh8qT8AOPvG71TA",
+    "verificationMethod": "did:key:z6MkuVnF67B9mBMjehrd75pM5s8nYDT3aApPpNxeScCnfmWx#z6MkuVnF67B9mBMjehrd75pM5s8nYDT3aApPpNxeScCnfmWx",
+    "created": "2026-10-15T06:38:48.047Z",
+    "domain": "Example Employer",
+    "cryptosuite": "eddsa-rdfc-2022"
+  },
+  "holder": "did:key:z6MkuVnF67B9mBMjehrd75pM5s8nYDT3aApPpNxeScCnfmWx"
+}

@@ -1,0 +1,106 @@
+{
+  "status": {
+    "http://localhost:3000/public/status/revocation": {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2"
+      ],
+      "id": "http://localhost:3000/public/status/revocation",
+      "type": [
+        "VerifiableCredential",
+        "BitstringStatusListCredential"
+      ],
+      "credentialSubject": {
+        "id": "http://localhost:3000/public/status/revocation#list",
+        "encodedList": "uH4sIAAAAAAAAA-3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAIC3AYbSVKsAQAAA",
+        "type": "BitstringStatusList",
+        "statusPurpose": "revocation"
+      },
+      "issuer": "did:key:z6MkwcahdcVKg8ygST96L2pNpmrJ8t8FESoQ17kf4L8CByAR",
+      "proof": {
+        "type": "DataIntegrityProof",
+        "proofPurpose": "assertionMethod",
+        "proofValue": "z3c49F4x85zo3LfGoUTddsfNUKW15ZdsC5ZY8sDyrvaNbACdp96d1Q3rz3XA93hLWQDkZSRmaywHgHsdggYbd4phg",
+        "verificationMethod": "did:key:z6MkwcahdcVKg8ygST96L2pNpmrJ8t8FESoQ17kf4L8CByAR#z6MkwcahdcVKg8ygST96L2pNpmrJ8t8FESoQ17kf4L8CByAR",
+        "created": "2026-10-15T06:38:48.033Z",
+        "cryptosuite": "eddsa-rdfc-2022"
+      },
+      "validFrom": "2026-10-15T06:38:48.032Z",
+      "validUntil": "2026-10-16T06:38:48.032Z"
+    },
+    "http://localhost:3000/public/status/suspension": {
+      "@context": [
+        "https://www.w3.org/ns/credentials/v2"
+      ],
+      "id": "http://localhost:3000/public/status/suspension",
+      "type": [
+        "VerifiableCredential",
+        "BitstringStatusListCredential"
+      ],
+      "credentialSubject": {
+        "id": "http://localhost:3000/public/status/suspension#list",
+        "type": "BitstringStatusList",
+        "encodedList": "uH4sIAAAAAAAAA-3BMQEAAADCoPVPbQwfoAAAAAAAAAAAAAAAAAAAAIC3AYbSVKsAQAAA",
+        "statusPurpose": "suspension"
+      },
+      "issuer": "did:key:z6MkwcahdcVKg8ygST96L2pNpmrJ8t8FESoQ17kf4L8CByAR",
+      "proof": {
+        "type": "DataIntegrityProof",
+        "proofPurpose": "assertionMethod",
+        "proofValue": "z335n7eMDp5LwQ6MKknoaJBQF1zoavQkQG6dpR7vfa4ZFNuHiXXNToAFZVyV8uWQWSJ4Q9hK9KBkoqbqvpDGq3bvB",
+        "verificationMethod": "did:key:z6MkwcahdcVKg8ygST96L2pNpmrJ8t8FESoQ17kf4L8CByAR#z6MkwcahdcVKg8ygST96L2pNpmrJ8t8FESoQ17kf4L8CByAR",
+        "created": "2026-10-15T06:38:48.036Z",
+        "cryptosuite": "eddsa-rdfc-2022"
+      },
+      "validFrom": "2026-10-15T06:38:48.032Z",
+      "validUntil": "2026-10-16T06:38:48.032Z"
+    }
+  },
+  "registry": {
+    "@context": [
+      "https://www.w3.org/ns/credentials/v2",
+      {
+        "entries": {
+          "@id": "https://example.edu/vocab/entries",
+          "@type": "@json"
+        },
+        "TrustRegistryCredential": "https://example.edu/vocab/TrustRegistryCredential"
+      }
+    ],
+    "id": "http://localhost:3000/public/trust",
+    "type": [
+      "VerifiableCredential",
+      "TrustRegistryCredential"
+    ],
+    "credentialSubject": {
+      "id": "http://localhost:3000/public/trust#registry",
+      "entries": [
+        {
+          "active": true,
+          "authorization": [
+            {
+              "credentialType": "UniversityDegreeCredential",
+              "from": "2000-01-01T00:00:00Z",
+              "until": "2100-01-01T00:00:00Z"
+            }
+          ],
+          "governance": "Synthetic accreditation by the Example Education Authority",
+          "id": "did:key:z6MkwcahdcVKg8ygST96L2pNpmrJ8t8FESoQ17kf4L8CByAR",
+          "name": "Example University",
+          "publicKeyMultibase": "z6MkwcahdcVKg8ygST96L2pNpmrJ8t8FESoQ17kf4L8CByAR"
+        }
+      ]
+    },
+    "issuer": "did:key:z6MkjVG7q1E9kSH3LjiTts45aztcsVjMRYVRDFpbuTtCRpQq",
+    "proof": {
+      "type": "DataIntegrityProof",
+      "proofPurpose": "assertionMethod",
+      "proofValue": "z4bWe3FaszqKrYBpKv1reDkHkCFbDqe5FF8gj17C9oqBTKQuCEqbGkRE4tDCeTDxXVwn1nvEq4agX3Fjrns8x56Ni",
+      "verificationMethod": "did:key:z6MkjVG7q1E9kSH3LjiTts45aztcsVjMRYVRDFpbuTtCRpQq#z6MkjVG7q1E9kSH3LjiTts45aztcsVjMRYVRDFpbuTtCRpQq",
+      "created": "2026-10-15T06:38:48.039Z",
+      "cryptosuite": "eddsa-rdfc-2022"
+    },
+    "validFrom": "2026-10-15T06:38:48.032Z",
+    "validUntil": "2026-10-16T06:38:48.032Z"
+  },
+  "authorityDid": "did:key:z6MkjVG7q1E9kSH3LjiTts45aztcsVjMRYVRDFpbuTtCRpQq"
+}

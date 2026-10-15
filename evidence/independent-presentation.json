@@ -1,0 +1,33 @@
+{
+  "presentationValid": true,
+  "holderBinding": true,
+  "accepted": true,
+  "credentials": [
+    {
+      "issuer": "did:key:z6MkfAphmV8YhW98LuK7Sp76DK91M27ExiZSa54eWtJQ6a16",
+      "schemaValid": true,
+      "signatureValid": true,
+      "temporalValid": true,
+      "technicalValid": true,
+      "status": {
+        "valid": true,
+        "label": "Active"
+      },
+      "issuerTrust": {
+        "valid": true,
+        "label": "Authorized at issuance",
+        "institution": "Example University",
+        "governance": "Synthetic accreditation by the Example Education Authority"
+      },
+      "recognition": {
+        "valid": true,
+        "label": "Matches employer demonstration policy",
+        "policy": "Bachelor of Science in Computer Science"
+      },
+      "accepted": true,
+      "errors": []
+    }
+  ],
+  "purpose": "Evaluate a qualification for a software engineering role",
+  "errors": []
+}

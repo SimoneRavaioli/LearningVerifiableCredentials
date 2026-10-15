@@ -1,0 +1,17 @@
+{
+  "passed": true,
+  "realLearnCardSigning": true,
+  "independentDigitalBazaarVerification": true,
+  "consentGate": true,
+  "sourceZipDownload": true,
+  "encryptedBackupDownload": true,
+  "reloadPersistence": true,
+  "desktopWidth": 1440,
+  "mobileWidth": 390,
+  "mobileNoOverflow": true,
+  "browserErrors": [],
+  "suspensionRejected": true,
+  "tamperRejected": true,
+  "wrongPasswordRejected": true,
+  "backupRestored": true
+}
