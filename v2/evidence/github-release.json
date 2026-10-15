@@ -10,6 +10,8 @@
     "downloadsRecreated": 4
   },
   "sourceZipSha256": "4a221b335c7ee8ce21a8ef368ea69188053eef23d0c1da50b037d3c24484ecc9",
-  "privateSiteStatus": "registered, upload blocked pending approval for separate destination",
-  "originalV1Modified": false
+  "privateSiteStatus": "deployed owner-private",
+  "originalV1Modified": false,
+  "privateSiteUrl": "https://learning-passport-wallet-v2.wellanole256.chatgpt.site",
+  "deploymentId": "appgdep_6ad0a53877a881918fbf0db8640174a8"
 }

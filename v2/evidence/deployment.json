@@ -1,0 +1,14 @@
+{
+  "project_id": "appgprj_6ad09c2a2bb08191a3231781d63d317e",
+  "id": "appgdep_6ad0a53877a881918fbf0db8640174a8",
+  "version_id": "appgprj_6ad09c2a2bb08191a3231781d63d317e~appgver_a1b0c614e6448191af24a23c36d38847",
+  "status": "succeeded",
+  "url": "https://learning-passport-wallet-v2.wellanole256.chatgpt.site",
+  "updated_at": "2026-10-15T10:05:22.285533+00:00",
+  "sourceCommit": "0a2568afaf3e101579c15f230a3a36595a3c0809",
+  "buildId": "9e5ffa0599b0",
+  "sourceTreeSha256": "c50ed3fd0094c707c9cfd89c37175493a7ae98f36111597aabfb4ccbcbf55f60",
+  "audience": "owner-private",
+  "originalV1Version": 1,
+  "verification": "Native deployment succeeded; same build passed recorded production browser tests"
+}
