@@ -1,0 +1,212 @@
+{
+  "auditReportVersion": 2,
+  "vulnerabilities": {
+    "@learncard/core": {
+      "name": "@learncard/core",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "isomorphic-webcrypto"
+      ],
+      "effects": [
+        "@learncard/didkey-plugin",
+        "@learncard/didkit-plugin",
+        "@learncard/openid4vc-plugin",
+        "@learncard/vc-plugin"
+      ],
+      "range": "",
+      "nodes": [
+        "node_modules/@learncard/core"
+      ],
+      "fixAvailable": false
+    },
+    "@learncard/didkey-plugin": {
+      "name": "@learncard/didkey-plugin",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@learncard/core"
+      ],
+      "effects": [],
+      "range": "",
+      "nodes": [
+        "node_modules/@learncard/didkey-plugin"
+      ],
+      "fixAvailable": false
+    },
+    "@learncard/didkit-plugin": {
+      "name": "@learncard/didkit-plugin",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@learncard/core"
+      ],
+      "effects": [],
+      "range": "",
+      "nodes": [
+        "node_modules/@learncard/didkit-plugin"
+      ],
+      "fixAvailable": false
+    },
+    "@learncard/openid4vc-plugin": {
+      "name": "@learncard/openid4vc-plugin",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@learncard/core",
+        "@learncard/didkit-plugin",
+        "@learncard/vc-plugin"
+      ],
+      "effects": [],
+      "range": "",
+      "nodes": [
+        "node_modules/@learncard/openid4vc-plugin"
+      ],
+      "fixAvailable": false
+    },
+    "@learncard/vc-plugin": {
+      "name": "@learncard/vc-plugin",
+      "severity": "high",
+      "isDirect": true,
+      "via": [
+        "@learncard/core",
+        "@learncard/didkit-plugin"
+      ],
+      "effects": [],
+      "range": "",
+      "nodes": [
+        "node_modules/@learncard/vc-plugin"
+      ],
+      "fixAvailable": false
+    },
+    "@unimodules/react-native-adapter": {
+      "name": "@unimodules/react-native-adapter",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "expo-modules-autolinking"
+      ],
+      "effects": [
+        "isomorphic-webcrypto"
+      ],
+      "range": "",
+      "nodes": [
+        "node_modules/@unimodules/react-native-adapter"
+      ],
+      "fixAvailable": false
+    },
+    "braces": {
+      "name": "braces",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        {
+          "source": 1240992,
+          "name": "braces",
+          "dependency": "braces",
+          "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+          "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+          "severity": "high",
+          "cwe": [
+            "CWE-674"
+          ],
+          "cvss": {
+            "score": 7.5,
+            "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+          },
+          "range": "<=3.0.3"
+        }
+      ],
+      "effects": [
+        "micromatch"
+      ],
+      "range": "",
+      "nodes": [
+        "node_modules/braces"
+      ],
+      "fixAvailable": false
+    },
+    "expo-modules-autolinking": {
+      "name": "expo-modules-autolinking",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "fast-glob"
+      ],
+      "effects": [
+        "@unimodules/react-native-adapter"
+      ],
+      "range": "",
+      "nodes": [
+        "node_modules/expo-modules-autolinking"
+      ],
+      "fixAvailable": false
+    },
+    "fast-glob": {
+      "name": "fast-glob",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "micromatch"
+      ],
+      "effects": [
+        "expo-modules-autolinking"
+      ],
+      "range": "",
+      "nodes": [
+        "node_modules/fast-glob"
+      ],
+      "fixAvailable": false
+    },
+    "isomorphic-webcrypto": {
+      "name": "isomorphic-webcrypto",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "@unimodules/react-native-adapter"
+      ],
+      "effects": [
+        "@learncard/core"
+      ],
+      "range": "",
+      "nodes": [
+        "node_modules/isomorphic-webcrypto"
+      ],
+      "fixAvailable": false
+    },
+    "micromatch": {
+      "name": "micromatch",
+      "severity": "high",
+      "isDirect": false,
+      "via": [
+        "braces"
+      ],
+      "effects": [
+        "fast-glob"
+      ],
+      "range": "",
+      "nodes": [
+        "node_modules/micromatch"
+      ],
+      "fixAvailable": false
+    }
+  },
+  "metadata": {
+    "vulnerabilities": {
+      "info": 0,
+      "low": 0,
+      "moderate": 0,
+      "high": 11,
+      "critical": 0,
+      "total": 11
+    },
+    "dependencies": {
+      "prod": 211,
+      "dev": 142,
+      "optional": 545,
+      "peer": 462,
+      "peerOptional": 0,
+      "total": 845
+    }
+  }
+}

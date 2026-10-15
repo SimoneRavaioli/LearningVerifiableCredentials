@@ -1,0 +1,82 @@
+{
+  "version": "2.0.0",
+  "recordedAtUTC": "2026-10-15T09:45:56.041Z",
+  "sourceCommit": null,
+  "sourceCommitScope": "Parent checkout HEAD when present; exact Site source commit is recorded separately in deployment.json",
+  "mode": "browser-local-production + isolated-node-services",
+  "node": "v24.19.0",
+  "lockfileSha256": "70225e1d10a040bc4d03ade5dd6a062aaff0ce1c89584ad66c5b22df63680384",
+  "tests": {
+    "passed": true,
+    "count": 7,
+    "log": "tests.txt"
+  },
+  "buildId": "9e5ffa0599b0",
+  "sourceTreeSha256": "c50ed3fd0094c707c9cfd89c37175493a7ae98f36111597aabfb4ccbcbf55f60",
+  "browser": {
+    "recordedAtUTC": "2026-10-15T09:45:24.087Z",
+    "buildId": "9e5ffa0599b0",
+    "sourceTreeSha256": "c50ed3fd0094c707c9cfd89c37175493a7ae98f36111597aabfb4ccbcbf55f60",
+    "mode": "browser-local-production",
+    "browser": "Chromium",
+    "scenarios": {
+      "responsiveWidths": [
+        320,
+        390,
+        430,
+        1440
+      ],
+      "cancelDoesNotPresent": true,
+      "fullJourney": true,
+      "consentGate": true,
+      "cleanDeviceRecoveryAndNewPresentation": true,
+      "wrongPasswordRejected": true,
+      "suspensionRejected": true,
+      "revocationCancelSafe": true,
+      "secondIssuerReceipt": true,
+      "twoHundredPercentZoomNoOverflow": true,
+      "minimum44PixelButtons": true,
+      "encryptedStorage": true,
+      "warmOfflineReload": true
+    },
+    "automatedAccessibility": {
+      "violations": []
+    },
+    "browserErrors": [],
+    "externalRequests": [],
+    "passed": true
+  },
+  "serviceBrowser": {
+    "recordedAtUTC": "2026-10-15T09:45:54.672Z",
+    "buildId": "9e5ffa0599b0",
+    "passed": true,
+    "separateOrigins": true,
+    "separateRoleKeys": true,
+    "holderPrivateKeyBrowserOnly": true,
+    "singleUseOffer": true,
+    "readableDisclosureGate": true,
+    "independentVerification": true,
+    "requestQrRendered": true,
+    "externalWallet": false,
+    "crossDevice": false,
+    "browserErrors": []
+  },
+  "storageBrowser": {
+    "recordedAtUTC": "2026-10-15T09:45:45.706Z",
+    "buildId": "9e5ffa0599b0",
+    "passed": true,
+    "multiTabConcurrentIssuance": true,
+    "quotaFailureNoFalseSave": true,
+    "controlledClockRequestExpiry": true,
+    "physicalEviction": false,
+    "realBrowserMigration": false
+  },
+  "learncardOpenIDPlugin": {
+    "version": "0.3.11",
+    "issuanceAndPresentation": "passed"
+  },
+  "externalWallet": "LearnCard consumer UI not executed; unmodified SDK protocol flow tested",
+  "realMobileDevices": "not executed",
+  "noviceUserStudy": "not executed",
+  "formalCertification": false
+}

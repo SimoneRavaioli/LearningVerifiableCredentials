@@ -1,0 +1,29 @@
+{
+  "sourceCommit": "1de9e4a8aed6a03b9428a6fa7895c9681e50ea7e",
+  "pluginSourceVersion": "0.3.11",
+  "consumerOrigin": "https://learncard.app",
+  "evidence": "Pinned source inspection plus executed issuance/presentation with unmodified npm OpenID plugin0.3.11; full consumer UI and deployed consumer version unverified",
+  "offerRoute": "/oid4vci?offer={encodedOfferUri}",
+  "presentationRoute": "/oid4vp?request={encodedRequestUri}",
+  "preferredIssuance": {
+    "protocol": "OID4VCI 1.0",
+    "grant": "urn:ietf:params:oauth:grant-type:pre-authorized_code",
+    "format": "ldp_vc",
+    "keyProofType": "jwt",
+    "keyProofAlgorithm": "EdDSA"
+  },
+  "preferredPresentation": {
+    "protocol": "OID4VP with PEX v2 compatibility",
+    "credentialFormat": "ldp_vc",
+    "vpFormat": "ldp_vp",
+    "proofType": "DataIntegrityProof",
+    "cryptosuite": "eddsa-rdfc-2022",
+    "responseMode": "direct_post",
+    "clientIdScheme": "redirect_uri",
+    "proofDomain": "Exact request.client_id",
+    "proofChallenge": "Request nonce"
+  },
+  "realConsumerTestPerformed": false,
+  "physicalDeviceTestPerformed": false,
+  "sdkProtocolRoundTripPerformed": true
+}

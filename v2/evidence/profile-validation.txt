@@ -1,0 +1,1 @@
+Application profile: valid fixture, five invalid variants rejected, offline JSON-LD expansion preserves learner name and achievement code. No certification claim.

@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "https://www.w3.org/ns/credentials/v2",
+    "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json"
+  ],
+  "id": "urn:uuid:54d42b82-4279-4aca-a4f6-148d4f180bae",
+  "type": [
+    "VerifiableCredential",
+    "OpenBadgeCredential"
+  ],
+  "issuer": {
+    "id": "did:example:synthetic-university",
+    "type": [
+      "Profile"
+    ],
+    "name": "Synthetic University"
+  },
+  "validFrom": "2026-10-15T00:00:00Z",
+  "name": "Bachelor of Science in Computer Science",
+  "credentialSubject": {
+    "id": "did:example:learner",
+    "type": [
+      "AchievementSubject"
+    ],
+    "name": "山田 太郎",
+    "activityEndDate": "2026-06-30",
+    "achievement": {
+      "id": "https://example.edu/achievements/CS-BSC",
+      "type": [
+        "Achievement"
+      ],
+      "achievementType": "BachelorDegree",
+      "humanCode": "CS-BSC",
+      "name": "Bachelor of Science in Computer Science",
+      "description": "Synthetic demonstration award: Bachelor of Science in Computer Science.",
+      "criteria": {
+        "narrative": "Complete the prescribed programme and pass all required assessments. Synthetic demonstration criteria."
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+name: Wallet v2
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: v2
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: v2/package-lock.json
+      - run: npm ci
+      - run: npm test
+      - run: node profiles/validate-fixture.mjs
+      - run: npm run build
+      - run: npm run package
+      - run: npx playwright install --with-deps chromium
+      - run: |
+          python3 -m http.server 4182 --bind 127.0.0.1 --directory dist > /tmp/wallet-preview.log 2>&1 &
+          node tests/browser.mjs
+      - run: node tests/services-browser.mjs
+      - run: node tests/storage-browser.mjs
+      - run: npm run release
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: wallet-v2-evidence
+          path: v2/evidence

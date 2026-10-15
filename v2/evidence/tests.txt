@@ -1,0 +1,16 @@
+✔ OB3-profile credential signs with LearnCard and independently verifies offline (203.212573ms)
+✔ missing evidence, suspended status, policy mismatch and tampering are distinct (62.947948ms)
+✔ multi-issuer bundles preserve separate evidence and closure preserves past authority (83.823364ms)
+✔ experimental SD-JWT discloses qualification only; rejects oversharing, nonce mismatch and expired key binding (14.116789ms)
+✔ unmodified LearnCard OpenID plugin receives OB3 VC through final1 pre-authorized issuance and submits a bound VP (184.356143ms)
+✔ isolated services reject learner access to operator signing and cross-origin writes (17.686654ms)
+✔ issuer, authority and verifier use separate keys and verify a one-time holder presentation (82.181499ms)
+ℹ tests 7
+ℹ suites 0
+ℹ pass 7
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1048.886077
+LearnCard protocol HTTP failure /token {"error":"invalid_grant"}

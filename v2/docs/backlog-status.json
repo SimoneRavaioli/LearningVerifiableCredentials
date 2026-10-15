@@ -1,0 +1,156 @@
+{
+  "version": "2.0.0",
+  "scope": "Implementation progress against all 25 review items; incomplete acceptance is not reported as done",
+  "items": [
+    {
+      "id": "UX-01",
+      "status": "implemented",
+      "delivered": "Learner default and explicit studio role chooser",
+      "acceptanceEvidenceOrRemaining": "Browser journey"
+    },
+    {
+      "id": "UX-02",
+      "status": "implemented",
+      "delivered": "Separate wallet/detail/request/review/confirmation/activity/settings screens",
+      "acceptanceEvidenceOrRemaining": "320/390/430/1440px and 200% zoom checks"
+    },
+    {
+      "id": "UX-03",
+      "status": "implemented",
+      "delivered": "Readable fields, purpose, expiry, exact optional payload, approval digest and cancel",
+      "acceptanceEvidenceOrRemaining": "Production UI consent/cancel tests"
+    },
+    {
+      "id": "UX-04",
+      "status": "implemented",
+      "delivered": "Immediate result with accepted/mismatch/invalid/incomplete states",
+      "acceptanceEvidenceOrRemaining": "Core outcome tests and mobile result UI"
+    },
+    {
+      "id": "UX-05",
+      "status": "implemented",
+      "delivered": "Action-specific progress, expired requests, one-use send, named revocation confirmation",
+      "acceptanceEvidenceOrRemaining": "UI double-submit guard; status/expiry backend tests"
+    },
+    {
+      "id": "UX-06",
+      "status": "partial",
+      "delivered": "44px controls, keyboard focus, native modal, labels, contrast; automated axe clean on tested result",
+      "acceptanceEvidenceOrRemaining": "Manual screen reader and full WCAG review require human/device testing"
+    },
+    {
+      "id": "DEMO-01",
+      "status": "implemented",
+      "delivered": "Seeded personas/pending diploma/request, guided tour and v2-only reset",
+      "acceptanceEvidenceOrRemaining": "Browser default journey; private keys remain random, not fixed demo seeds"
+    },
+    {
+      "id": "DEMO-02",
+      "status": "implemented",
+      "delivered": "No fake role passwords in demo; explicit custody, backup and conformance limits",
+      "acceptanceEvidenceOrRemaining": "Product copy review and documented mode boundaries"
+    },
+    {
+      "id": "REL-01",
+      "status": "implemented",
+      "delivered": "Portable build/download packaging, no dependency symlink, generated schema and manifests",
+      "acceptanceEvidenceOrRemaining": "Fresh sanitized checkout build/package test; ZIP validation"
+    },
+    {
+      "id": "REL-02",
+      "status": "partial",
+      "delivered": "Separate private v2 deployment, portable Node/Python launchers and v1 retained",
+      "acceptanceEvidenceOrRemaining": "Owner-device route and real Windows/macOS execution require external checks"
+    },
+    {
+      "id": "QA-01",
+      "status": "implemented",
+      "delivered": "Versioned CI workflow, source/build/lock/evidence/deployment manifests",
+      "acceptanceEvidenceOrRemaining": "Local automated test results; CI remote run recorded separately if available"
+    },
+    {
+      "id": "QA-02",
+      "status": "external-validation-required",
+      "delivered": "Responsive browser tests and novice-study protocol ready",
+      "acceptanceEvidenceOrRemaining": "Need real iPhone/Android and five independent novice participants; no simulated study"
+    },
+    {
+      "id": "SEC-01",
+      "status": "partial",
+      "delivered": "Mode threat models, pinned loaders, CSP, origin controls, egress and dependency audit",
+      "acceptanceEvidenceOrRemaining": "Live host headers and independent security review remain required"
+    },
+    {
+      "id": "INT-01",
+      "status": "partial",
+      "delivered": "LearnCard consumer selected; limited OID4VCI final1 ldp_vc and OID4VP PEX/direct_post implemented and tested with unmodified OpenID plugin0.3.11",
+      "acceptanceEvidenceOrRemaining": "SDK round trip passes; actual consumer app/storage, remote HTTPS and physical cross-device test still required"
+    },
+    {
+      "id": "INT-02",
+      "status": "partial",
+      "delivered": "LearnCard consumer offer/request URLs, real QR and opaque request handoffs generated; strict audience and descriptor validation",
+      "acceptanceEvidenceOrRemaining": "Local protocol test passes; real camera/app return/cross-device TLS deployment still required"
+    },
+    {
+      "id": "INT-03",
+      "status": "implemented",
+      "delivered": "Second issuer UI receipt, original proof-preserving import and per-issuer bundle verification",
+      "acceptanceEvidenceOrRemaining": "Core multi-issuer test and production UI second-issuer receipt"
+    },
+    {
+      "id": "DATA-01",
+      "status": "partial",
+      "delivered": "Pinned official OB3 context/model and validated declared application subset with qualification codes",
+      "acceptanceEvidenceOrRemaining": "Full official schema/certification and jurisdiction partner profile remain prerequisites"
+    },
+    {
+      "id": "SEC-02",
+      "status": "partial",
+      "delivered": "Separate issuer/authority/verifier processes/origins; browser-only holder key; operator signing restrictions",
+      "acceptanceEvidenceOrRemaining": "Local protocol and browser integration tests; independent institutional deployments/KMS not provisioned"
+    },
+    {
+      "id": "REC-01",
+      "status": "implemented",
+      "delivered": "Holder-only encrypted backup restores on clean browser and answers new request",
+      "acceptanceEvidenceOrRemaining": "Production clean-context recovery + wrong password rejection; native LearnCard ZIP incompatibility documented"
+    },
+    {
+      "id": "PRIV-01",
+      "status": "partial",
+      "delivered": "Experimental JOSE-verified qualification-only SD-JWT module with binding/overdisclosure negatives",
+      "acceptanceEvidenceOrRemaining": "Not wired into OB3 UI or externally certified; requires partner-compatible privacy profile/status"
+    },
+    {
+      "id": "TRUST-01",
+      "status": "partial",
+      "delivered": "Signed authority history, closure preservation, versioned qualification-code policy",
+      "acceptanceEvidenceOrRemaining": "Synthetic authority only; real governance source and legal recognition partner needed"
+    },
+    {
+      "id": "QA-03",
+      "status": "partial",
+      "delivered": "Cross-tab concurrent issuance, quota failure with no false save, schema version rejection, stale-cache tests and controlled request expiry",
+      "acceptanceEvidenceOrRemaining": "Production browser fault tests pass; actual physical eviction and deployed storage-version migration still require additional validation"
+    },
+    {
+      "id": "OPS-01",
+      "status": "partial",
+      "delivered": "Incident, key compromise, cache outage, retention, rollback, recovery and telemetry runbooks",
+      "acceptanceEvidenceOrRemaining": "Institutions must assign actual operators, services and independently exercise recovery before pilot"
+    },
+    {
+      "id": "MOB-01",
+      "status": "partial",
+      "delivered": "Responsive PWA manifest and precached app shell; native decision documented",
+      "acceptanceEvidenceOrRemaining": "Real home-screen installation and device keystore comparison need target phones"
+    },
+    {
+      "id": "LIFE-01",
+      "status": "partial",
+      "delivered": "Unicode/RTL rendering, correction/revoke linkage and synthetic institution closure",
+      "acceptanceEvidenceOrRemaining": "Minors/guardianship, real qualification mappings and long-term archival/algorithm migration need partner governance"
+    }
+  ]
+}

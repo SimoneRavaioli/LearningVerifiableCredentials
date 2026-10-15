@@ -1,0 +1,33 @@
+{
+  "recordedAtUTC": "2026-10-15T09:45:24.087Z",
+  "buildId": "9e5ffa0599b0",
+  "sourceTreeSha256": "c50ed3fd0094c707c9cfd89c37175493a7ae98f36111597aabfb4ccbcbf55f60",
+  "mode": "browser-local-production",
+  "browser": "Chromium",
+  "scenarios": {
+    "responsiveWidths": [
+      320,
+      390,
+      430,
+      1440
+    ],
+    "cancelDoesNotPresent": true,
+    "fullJourney": true,
+    "consentGate": true,
+    "cleanDeviceRecoveryAndNewPresentation": true,
+    "wrongPasswordRejected": true,
+    "suspensionRejected": true,
+    "revocationCancelSafe": true,
+    "secondIssuerReceipt": true,
+    "twoHundredPercentZoomNoOverflow": true,
+    "minimum44PixelButtons": true,
+    "encryptedStorage": true,
+    "warmOfflineReload": true
+  },
+  "automatedAccessibility": {
+    "violations": []
+  },
+  "browserErrors": [],
+  "externalRequests": [],
+  "passed": true
+}

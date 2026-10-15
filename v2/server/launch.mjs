@@ -1,0 +1,13 @@
+import {fileURLToPath} from 'node:url';
+import {spawn} from 'node:child_process';
+import {createServer} from 'node:http';
+import {readFile,stat} from 'node:fs/promises';
+import {resolve,extname} from 'node:path';
+const root=resolve(fileURLToPath(new URL('..',import.meta.url))),children=[];let server;
+if(!process.env.OPERATOR_PASSWORD||process.env.OPERATOR_PASSWORD.length<16)throw new Error('Set OPERATOR_PASSWORD to a new password of at least 16 characters. See .env.example.');
+function launch(role,port,extra={}){const child=spawn(process.execPath,['server/service.mjs'],{cwd:root,stdio:'inherit',env:{...process.env,LVC_ROLE:role,PORT:String(port),DATA_DIR:resolve(root,'.data',role),...extra}});children.push(child);child.on('exit',code=>{if(code){console.error(role+' stopped');shutdown();}});}
+async function ready(port){for(let i=0;i<80;i++){try{const r=await fetch('http://127.0.0.1:'+port+'/health');if(r.ok)return r.json();}catch{}await new Promise(r=>setTimeout(r,100));}throw new Error('Service failed to start');}
+launch('issuer',4521);const issuer=await ready(4521);launch('authority',4522,{ISSUER_DID:issuer.did,AUTHORITY_ORIGIN:'http://127.0.0.1:4522'});const authority=await ready(4522);launch('verifier',4523,{ISSUER_DID:issuer.did,AUTHORITY_DID:authority.did,ISSUER_ORIGIN:'http://127.0.0.1:4521',AUTHORITY_ORIGIN:'http://127.0.0.1:4522'});await ready(4523);
+const mime={'.html':'text/html','.js':'text/javascript','.css':'text/css','.json':'application/json','.svg':'image/svg+xml','.wasm':'application/wasm','.zip':'application/zip','.webmanifest':'application/manifest+json'};
+server=createServer(async(req,res)=>{try{const pathname=new URL(req.url,'http://localhost').pathname;const path=resolve(root,'dist','.'+(pathname==='/'?'/index.html':decodeURIComponent(pathname)));if(!path.startsWith(resolve(root,'dist')+'/'))throw new Error('Not found');await stat(path);res.setHeader('Content-Type',mime[extname(path)]??'application/octet-stream');res.setHeader('X-Content-Type-Options','nosniff');res.setHeader('Referrer-Policy','no-referrer');res.setHeader('Content-Security-Policy',"default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; img-src 'self' data:; connect-src 'self' http://127.0.0.1:4521 http://127.0.0.1:4522 http://127.0.0.1:4523; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'");res.end(await readFile(path));}catch{res.writeHead(404);res.end('Not found');}});server.listen(4520,'127.0.0.1',()=>console.log('Wallet v2: http://127.0.0.1:4520 · isolated PoC: http://127.0.0.1:4520/poc.html'));
+function shutdown(){for(const child of children)child.kill();server?.close();process.exitCode=1;}process.on('SIGTERM',shutdown);process.on('SIGINT',shutdown);

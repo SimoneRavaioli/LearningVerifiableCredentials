@@ -1,0 +1,32 @@
+{
+  "upstreamRepository": "https://github.com/1EdTech/openbadges-specification",
+  "commit": "04c4bc2ee16d78d9ece12f837320a3e3fe66374a",
+  "retrieved": "2026-10-15",
+  "contextVersion": "3.0.3",
+  "canonicalContextUrl": "https://purl.imsglobal.org/spec/ob/v3p0/context-3.0.3.json",
+  "attribution": "Copyright IMS Global Learning Consortium, Inc. (1EdTech). See UPSTREAM-LICENSE.md.",
+  "assets": [
+    {
+      "path": "context-3.0.3.json",
+      "upstreamPath": "ob_v3p0/context-3.0.3.json",
+      "sourceUrl": "https://raw.githubusercontent.com/1EdTech/openbadges-specification/04c4bc2ee16d78d9ece12f837320a3e3fe66374a/ob_v3p0/context-3.0.3.json",
+      "sha256": "3d34f4d4ef1bce691106e63798beb5e7b862ba841423f5ee1e53ab7ddf3bca84"
+    },
+    {
+      "path": "upstream-common-credentials.lines",
+      "upstreamPath": "ob_v3p0/common_credentials.lines",
+      "sourceUrl": "https://raw.githubusercontent.com/1EdTech/openbadges-specification/04c4bc2ee16d78d9ece12f837320a3e3fe66374a/ob_v3p0/common_credentials.lines",
+      "sha256": "1d5aacb55c862b5372f38f465ed81edc7a8a537bd9d8635638db891671b2b55f"
+    },
+    {
+      "path": "UPSTREAM-LICENSE.md",
+      "upstreamPath": "ob_v3p0/license.md",
+      "sourceUrl": "https://raw.githubusercontent.com/1EdTech/openbadges-specification/04c4bc2ee16d78d9ece12f837320a3e3fe66374a/ob_v3p0/license.md",
+      "sha256": "c443abf513b17d0baf044ddd52cc0ceaa298e107afdf6e50751a2afbaacd20fc"
+    }
+  ],
+  "applicationSchema": {
+    "path": "learning-passport-profile.schema.json",
+    "status": "Application-maintained subset, not official complete OB3 JSON Schema or certification test"
+  }
+}

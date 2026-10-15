@@ -1,0 +1,15 @@
+{
+  "recordedAtUTC": "2026-10-15T09:45:54.672Z",
+  "buildId": "9e5ffa0599b0",
+  "passed": true,
+  "separateOrigins": true,
+  "separateRoleKeys": true,
+  "holderPrivateKeyBrowserOnly": true,
+  "singleUseOffer": true,
+  "readableDisclosureGate": true,
+  "independentVerification": true,
+  "requestQrRendered": true,
+  "externalWallet": false,
+  "crossDevice": false,
+  "browserErrors": []
+}
