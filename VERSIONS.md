@@ -1,9 +1,9 @@
 # Wallet versions
 
-| | Original v1 | Wallet v2 |
+| | Wallet v1 | Wallet v2 |
 |---|---|---|
 | Source | Repository root and `preview/` | [`v2/`](v2/) |
-| Preview | [Original wallet](https://learning-passport-wallet-preview.wellanole256.chatgpt.site/) | [Mobile learner wallet](https://learning-passport-wallet-v2.wellanole256.chatgpt.site/) |
+| Preview | [Wallet v1](https://learning-passport-wallet-preview.wellanole256.chatgpt.site/) | [Mobile learner wallet](https://learning-passport-wallet-v2.wellanole256.chatgpt.site/) |
 | Browser data | Original preview database | Separate `learning-passport-v2` database |
 | Local launch | Original package/port | Separate package on port 8766 |
 | Main purpose | Engineering reference / three-role workflow | Mobile UX, recovery, multi-issuer workflow and isolated-service PoC |
