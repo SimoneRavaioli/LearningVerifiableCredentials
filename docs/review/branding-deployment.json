@@ -1,0 +1,34 @@
+{
+  "change": "Product naming only; existing URLs and storage identifiers retained",
+  "deployments": [
+    {
+      "name": "LCV Passport - Wallet v1",
+      "project_id": "appgprj_6ad076c952c481918f75ad6772686628",
+      "deployment_id": "appgdep_6ad0ad068b9c8191a237722f5eb7e4c0",
+      "status": "succeeded",
+      "url": "https://learning-passport-wallet-preview.wellanole256.chatgpt.site",
+      "sourceCommit": "a57458259b5b68551e648ab6d71b4f97f4a69bba",
+      "updated_at": "2026-10-15T10:38:15.485535+00:00"
+    },
+    {
+      "name": "LCV Passport - Wallet v2",
+      "project_id": "appgprj_6ad09c2a2bb08191a3231781d63d317e",
+      "deployment_id": "appgdep_6ad0ad26663c8191bd288210335d3ff4",
+      "status": "succeeded",
+      "url": "https://learning-passport-wallet-v2.wellanole256.chatgpt.site",
+      "sourceCommit": "47c917c072b3a9eb54f33b9f4d52ced1bcd9a29c",
+      "updated_at": "2026-10-15T10:38:48.710876+00:00"
+    }
+  ],
+  "browserBrandingCheck": {
+    "titlesVerified": true,
+    "accessibleBrandNamesVerified": true,
+    "widthsWithoutOverflow": [
+      320,
+      390,
+      1440
+    ],
+    "v2ManifestNameVerified": true
+  },
+  "functionalTests": "Historical release results retained; no claim of a new full functional test run for this naming-only change"
+}
