@@ -1,0 +1,15 @@
+{
+  "version": "2.0.0",
+  "githubSourceCommit": "a0d6e88c12494ffdb882d53cec6bd9a1e6356580",
+  "githubRepository": "https://github.com/SimoneRavaioli/LearningVerifiableCredentials",
+  "sourceFolder": "v2",
+  "freshExtractedSource": {
+    "npmCi": true,
+    "testsPassed": 7,
+    "build": true,
+    "downloadsRecreated": 4
+  },
+  "sourceZipSha256": "4a221b335c7ee8ce21a8ef368ea69188053eef23d0c1da50b037d3c24484ecc9",
+  "privateSiteStatus": "registered, upload blocked pending approval for separate destination",
+  "originalV1Modified": false
+}
