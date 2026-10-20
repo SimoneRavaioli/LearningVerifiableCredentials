@@ -26,6 +26,7 @@ jobs:
           node tests/browser.mjs
       - run: node tests/services-browser.mjs
       - run: node tests/storage-browser.mjs
+      - run: node tests/returning-browser.mjs
       - run: npm run release
       - uses: actions/upload-artifact@v4
         if: always()
